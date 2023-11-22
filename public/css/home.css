@@ -1,0 +1,133 @@
+.section {
+    padding: 40px 40px;
+}
+.section .section-title {
+    font-size: var(--font-size-extra-large);
+    font-family: var(--font-family-title);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+.about-section {
+    font-family: var(--font-family-title);
+    background-image: url("/images/pexels-jakub-novacek-924824.jpg");
+    background-size: cover;
+    background-color: #1e1e20;
+    color: #F9F8FC;
+    line-height: 1.5;
+}
+.about-section  .about-title {
+    font-size: var(--font-size-extra-large);
+    font-weight: 700;
+    text-align: right;
+    margin-bottom: 10px;
+}
+.about-section  .about-description,
+.about-section .welcome-message {
+    font-size: var(--font-size-huge);
+    font-weight: 700;
+    max-width: 600px;
+}
+.about-section .welcome-message {
+    margin-bottom: 200px;
+}
+.about-align-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.latest-videos {
+    background-color: #1e1e20;
+    color: #F9F8FC;
+    border-top: 1px solid #F9F8FC;
+}
+.latest-videos .videos-scroll {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow-x: scroll;
+    max-width: 1070px;
+    margin: 10px auto;
+    padding: 10px 0;
+}
+.latest-videos .videos-scroll .video {
+    width: 400px;
+    height: 250px;
+}
+.latest-videos .links {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin: 0 auto 10px auto;
+    max-width: 1070px;
+}
+.latest-videos .links .link {
+    display: block;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: rgb(17, 167, 236);
+}
+.latest-videos .links .link:hover {
+    text-decoration: underline;
+}
+
+.latest-videos .search-bar-mobile{
+    display: none;
+    max-width: 1070px;
+    margin: 0 auto;
+}
+.latest-videos .search-bar-mobile .search-input,
+.latest-videos .search-bar-mobile .search-submit {
+    height: 40px;
+    border: none;
+    outline: none;
+}
+.latest-videos .search-bar-mobile .search-input {
+    flex: 1;
+    background-color: #FFFFFF;
+    min-width: 100px;
+    padding: 0 15px;
+}
+.latest-videos .search-bar-mobile .search-submit {
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+.latest-videos .search-bar-mobile .search-input::placeholder {
+    font-size: var(--font-size-normal);
+}
+
+@media screen and (max-width: 800px){
+    .about-section  .about-description,
+    .about-section .welcome-message {
+        max-width: 500px;
+    }
+    .latest-videos .videos-scroll .video {
+        width: 350px;
+        height: 200px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .section {
+        padding: 40px 10px;
+    }
+    .navbar .navbar-feature {
+        display: none;
+    }
+    .about-section {
+        padding: 20px 10px;
+    }
+    .about-section  .about-description,
+    .about-section .welcome-message {
+        text-align: center;
+    }
+    .latest-videos .videos-scroll .video {
+        width: 200px;
+        height: 200px;
+    }
+    .latest-videos .search-bar-mobile{
+        display: flex;
+    }
+}

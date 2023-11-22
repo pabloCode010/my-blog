@@ -1,12 +1,16 @@
 <nav class="navbar">
     <div>
-        <a class="nav-link" href="/">inicio</a>
+        <a class="nav-link <%= currentPage === 'home' ? 'accent' : '' %>" href="/">inicio</a>
         <a class="nav-link" href="https://github.com/pabloCode010" target="_blank">github</a>
-        <a class="nav-link accent" href="/about-me">sobre mí</a>
+        <a class="nav-link <%= currentPage === 'about' ? 'accent' : '' %>" href="/about-me">sobre mí</a>
     </div>
-    <div>
-        <p class="navbar-title">my blog</p>
-    </div>
+
+    <% if (currentPage !== 'home') { %>
+        <div class="navbar-title-container">
+            <p class="navbar-title">my blog</p>
+        </div>
+    <% }%>
+
     <div class="navbar-feature">
         <form class="navbar-search-bar" action="">
             <input class="search-input" type="search" placeholder="Buscar">

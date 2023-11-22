@@ -6,20 +6,21 @@
     gap: 80px;
     top: 0px;
     position: sticky;
-    background-color: #1e1e20;
+    background-color: #3c3c3e;
     width: 100%;
-    padding: 15px 20px;
+    padding: 8px 15px;
 }
 .navbar .nav-link {
     font-size: var(--font-size-normal);
     text-decoration: none;
     text-transform: capitalize;
-    color: rgb(17, 167, 236);
+    color: #F9F8FC;
     margin-right: 10px;
 }
+.navbar .nav-link.accent,
 .navbar .nav-link:hover {
     text-decoration: underline;
-    color: #F9F8FC;
+    /* color: rgb(17, 167, 236); */
 }
 .navbar .navbar-title {
     font-size: var(--font-size-extra-large);
@@ -31,6 +32,7 @@
 .navbar .navbar-feature {
     flex: 1;
     max-width: 350px;
+    min-width: 100px;
 }
 .navbar .navbar-feature .navbar-search-bar{
     display: flex;
@@ -44,6 +46,7 @@
 .navbar .navbar-feature .navbar-search-bar .search-input {
     flex: 1;
     background-color: #FFFFFF;
+    min-width: 100px;
     padding: 0 15px;
 }
 .navbar .navbar-feature .navbar-search-bar .search-submit {
@@ -53,13 +56,40 @@
 .navbar .navbar-feature .navbar-search-bar .search-input::placeholder {
     font-size: var(--font-size-normal);
 }
-@media screen and (max-width: 750px) {
-    .navbar {
-        flex-direction: column-reverse;
-        gap: 6px;
-    }
-    .navbar .navbar-feature {
-        display: none;
-    }
+/* ----------------------------------------------- */
+.subscription {
+    padding: 5px;
+}
+.subscription .subscribe-message {
+    font-size: var(--font-size-large);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.subscription .subscribe-description {
+    font-size: var(--font-size-small);
+}
+.subscription .subscription-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+.subscription .subscription-form input, 
+.subscription .subscription-form button {
+    font-family: var(--font-family-body);
+    display: block;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+}
+.subscription .subscription-form input {
+    flex: 1;
+    background-color: #FFFFFF;
+    min-width: 100px;
+    max-width: 250px;
+}
+.subscription .subscription-form button {
+    cursor: pointer;
+    text-transform: capitalize;
+    background-color: #b13539;
+    color: #F9F8FC;
 }
 /* ----------------------------------------------- */
