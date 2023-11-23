@@ -20,22 +20,57 @@
         </div>
     </header>
     <section class="section latest-videos">
+        <form class="search-bar-mobile" action="">
+            <input class="search-input" type="search" placeholder="Buscar Posts">
+            <button class="search-submit" type="submit"><span class="material-symbols-outlined">search</span></button>
+        </form>
         <h2 class="section-title">últimos videos</h2>
         <div class="videos-scroll">
-            <iframe class="video" src="https://www.youtube.com/embed/HJwcrtOvdeM?si=9xGHnR_FWAVamgs4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <iframe class="video" src="https://www.youtube.com/embed/HJwcrtOvdeM?si=9xGHnR_FWAVamgs4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <iframe class="video" src="https://www.youtube.com/embed/HJwcrtOvdeM?si=9xGHnR_FWAVamgs4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <iframe class="video" src="https://www.youtube.com/embed/HJwcrtOvdeM?si=9xGHnR_FWAVamgs4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <iframe class="video" src="https://www.youtube.com/embed/HJwcrtOvdeM?si=9xGHnR_FWAVamgs4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <article class="video"></article>
+            <article class="video"></article>
+            <article class="video"></article>
+            <article class="video"></article>
+            <article class="video"></article>
         </div>
         <div class="links">
             <a href="#" class="link">youtube</a>
             <a href="#" class="link">tiktok</a>
         </div>
-        <form class="search-bar-mobile" action="">
-            <input class="search-input" type="search" placeholder="Buscar Posts">
-            <button class="search-submit" type="submit"><span class="material-symbols-outlined">search</span></button>
-        </form>
     </section>
+    <section class="section latest-posts">
+        <h2 class="section-title">últimos posts</h2>
+        <div class="posts-container">
+            <% for (let i = 0; i < latestPosts.length; i++) { %>
+            <article class="post">
+                <div class="post-summary">
+                    <img src="<%= latestPosts[i].imageSrc %>" alt="">
+                    <div class="post-text-container">
+                        <h3 class="post-title"><%= latestPosts[i].title %></h3>
+                        <p class="sypnosis limit-text"><%= latestPosts[i].synopsis %></p>
+                    </div>
+                </div>
+                <a class="post-link" href="/post.html">Leer más</a>
+            </article>
+            <% } %>            
+        </div>
+    </section>
+    <section class="recommended-posts section">
+        <h2 class="section-title">recomendaciones</h2>
+        <div class="posts-container">
+            <% for (let i = 0; i < recommendedPosts.length; i++) { %>
+            <article class="post">
+                <div class="post-summary">
+                    <img src="<%= recommendedPosts[i].imageSrc %>" alt="">
+                    <div class="post-text-container">
+                        <h3 class="post-title"><%= recommendedPosts[i].title %></h3>
+                        <p class="sypnosis limit-text"><%= recommendedPosts[i].synopsis %></p>
+                    </div>
+                </div>
+                <a class="post-link" href="/post.html">Leer más</a>
+            </article>
+            <% } %>       
+        </div>
+    </section>
+    <%- include("layouts/footer.ejs", { currentPage: "home" }); -%>
 </body>
 </html>

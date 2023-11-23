@@ -39,6 +39,8 @@
 }
 .navbar .navbar-feature .navbar-search-bar .search-input,
 .navbar .navbar-feature .navbar-search-bar .search-submit {
+    font-family: var(--font-family-body);
+    text-transform: capitalize;
     height: 40px;
     border: none;
     outline: none;
@@ -93,3 +95,86 @@
     color: #F9F8FC;
 }
 /* ----------------------------------------------- */
+footer {
+    font-family: var(--font-family-title);
+    background-image: url("/images/pexels-jakub-novacek-924824.jpg");
+    background-size: cover;
+    background-color: #1e1e20;
+    color: #F9F8FC;
+}
+footer .footer-link {
+    color: #F9F8FC;
+    text-decoration: none;
+}
+footer .footer-link:hover {
+    text-decoration: underline;
+}
+footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 50px;
+    border-bottom: 1px solid #F9F8FC;
+    padding: 40px;
+}
+footer .footer-container.links  {
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 20px;
+}
+footer .footer-container .about-me {
+    font-size: var(--font-size-small);
+    display: flex;
+    gap: 10px;
+    max-width: 350px;
+    text-align: justify;
+}
+footer .footer-container .about-me .me {
+    background-color: #FFFFFF;
+    min-width: 130px;
+    height: 130px;
+}
+footer .footer-container.links .footer-links-container {
+    line-height: 1.5;
+    max-width: 250px;
+}
+footer .footer-container.links .footer-links-container .footer-links-title {
+    font-size: var(--font-size-normal);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+footer .footer-container.links .footer-links-container .footer-link {
+    font-size: var(--font-size-extra-small);
+    display: block;
+    max-width: max-content;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@media screen and (max-width: 790px){
+    footer .footer-container {
+        gap: 20px;
+    }
+}
+@media screen and (max-width: 881px){
+    footer .footer-container.links  {
+        flex-direction: column;
+    }
+    footer .footer-container.links .footer-links-container{
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 500px){
+    footer .footer-container {
+        padding: 40px 20px;
+    }
+    footer .footer-container .about-me {
+        max-width: 100%;
+    }
+    footer .footer-container .about-me .me {
+        background-color: #FFFFFF;
+        min-width: 90px;
+        height: 90px;
+    }
+}

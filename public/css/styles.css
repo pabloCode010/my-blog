@@ -24,6 +24,13 @@ body, header, nav, article, aside, main, h1, h2, h3, h4, div, p, span, iframe {
 body {
     font-family: var(--font-family-body);
     background-color: #F9F8FC;
+    color: #1e1e20;
+}
+.limit-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 @media screen and (max-width: 800px) {
     :root {

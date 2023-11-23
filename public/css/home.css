@@ -54,14 +54,15 @@
     padding: 10px 0;
 }
 .latest-videos .videos-scroll .video {
-    width: 400px;
+    background-color: #F9F8FC;
+    min-width: 350px;
     height: 250px;
 }
 .latest-videos .links {
     display: flex;
     align-items: flex-start;
     gap: 15px;
-    margin: 0 auto 10px auto;
+    margin: 0 auto;
     max-width: 1070px;
 }
 .latest-videos .links .link {
@@ -69,18 +70,21 @@
     text-decoration: none;
     text-transform: capitalize;
     color: rgb(17, 167, 236);
+    color: #b13539;
+    font-weight: 700;
 }
 .latest-videos .links .link:hover {
     text-decoration: underline;
 }
-
 .latest-videos .search-bar-mobile{
     display: none;
     max-width: 1070px;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
 }
 .latest-videos .search-bar-mobile .search-input,
 .latest-videos .search-bar-mobile .search-submit {
+    font-family: var(--font-family-body);
+    text-transform: capitalize;
     height: 40px;
     border: none;
     outline: none;
@@ -93,19 +97,65 @@
 }
 .latest-videos .search-bar-mobile .search-submit {
     cursor: pointer;
-    background-color: #e7e7e7;
+    background-color: #E7E7E7;
 }
 .latest-videos .search-bar-mobile .search-input::placeholder {
     font-size: var(--font-size-normal);
 }
 
+.latest-posts {
+    background-color: #F1EEFA;
+}
+/*estilos compartidos en la seccion de latest-posts y recommended-posts*/
+.posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1070px;
+    gap: 10px;
+    margin: 30px auto 0 auto;
+}
+.post {
+    flex-grow: 1;
+    flex-basis: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+.post .post-summary img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.post .post-summary .post-text-container {
+    padding: 4px 10px;
+}
+.post .post-summary .post-text-container .post-title {
+    font-family: var(--font-family-title);
+    font-size: var(--font-size-large);
+    font-weight: 600;
+}
+.post .post-summary .post-text-container .sypnosis {
+    font-size: var(--font-size-normal);
+    text-align: justify;
+    line-height: 1.5;
+    margin: 15px 0;
+}
+.post .post-link {
+    display: inline-block;
+    padding: 0 0 10px 10px;
+    text-decoration: none;
+    color: #b13539;
+}
+/*--------------------------------------------------------*/
 @media screen and (max-width: 800px){
     .about-section  .about-description,
     .about-section .welcome-message {
         max-width: 500px;
     }
     .latest-videos .videos-scroll .video {
-        width: 350px;
+        min-width: 300px;
         height: 200px;
     }
 }
@@ -124,7 +174,7 @@
         text-align: center;
     }
     .latest-videos .videos-scroll .video {
-        width: 200px;
+        min-width: 200px;
         height: 200px;
     }
     .latest-videos .search-bar-mobile{
