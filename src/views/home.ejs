@@ -43,13 +43,13 @@
             <% for (let i = 0; i < latestPosts.length; i++) { %>
             <article class="post">
                 <div class="post-summary">
-                    <img src="<%= latestPosts[i].imageSrc %>" alt="">
+                    <img src="<%= latestPosts[i].imageUrl %>" alt="">
                     <div class="post-text-container">
                         <h3 class="post-title"><%= latestPosts[i].title %></h3>
-                        <p class="sypnosis limit-text"><%= latestPosts[i].synopsis %></p>
+                        <p class="sypnosis limit-text"><%= latestPosts[i].summary %></p>
                     </div>
                 </div>
-                <a class="post-link" href="/post.html">Leer más</a>
+                <a class="post-link" href="/post/<%= latestPosts[i].title %>">Leer más</a>
             </article>
             <% } %>            
         </div>
@@ -60,13 +60,13 @@
             <% for (let i = 0; i < recommendedPosts.length; i++) { %>
             <article class="post">
                 <div class="post-summary">
-                    <img src="<%= recommendedPosts[i].imageSrc %>" alt="">
+                    <img src="<%= recommendedPosts[i].imageUrl %>" alt="">
                     <div class="post-text-container">
                         <h3 class="post-title"><%= recommendedPosts[i].title %></h3>
-                        <p class="sypnosis limit-text"><%= recommendedPosts[i].synopsis %></p>
+                        <p class="sypnosis limit-text"><%= recommendedPosts[i].summary %></p>
                     </div>
                 </div>
-                <a class="post-link" href="/post.html">Leer más</a>
+                <a class="post-link" href="/post/<%= recommendedPosts[i].title %>">Leer más</a>
             </article>
             <% } %>       
         </div>
