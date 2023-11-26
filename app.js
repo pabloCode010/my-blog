@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 const indexRouter = require("./src/routes/index");
 const postRouter = require("./src/routes/post");
 const connect = require("./src/db/connect");
+const api = require("./src/API/routes/router");
 
 // Views engine
 app.set("view engine", "ejs");
@@ -18,9 +19,15 @@ app.set("views", `${__dirname}/src/views`);
 app.use(morgan("dev"));
 app.use(express.static("public"));
 
-// Routes
+// Routes Views
 app.use(indexRouter);
 app.use(postRouter);
+
+// Middlewares -> Api
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use(api);
 
 const start = async () => {
   await connect(process.env.MONGO_URI);
