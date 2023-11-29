@@ -6,10 +6,30 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="/css/layouts.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
     <title>Document</title>
 </head>
 <body>
     <%- include("layouts/navbar.ejs", { currentPage: "post" }); -%>
-    <p> <%= content %> </p>
-</body>
+    <main>
+      <h1><%= title %></h1>
+      <p class="summary"><%= summary %></p>
+      <div style="text-align: center;">
+        <img src="<%= imageUrl %>" alt="" class="main-image">
+      </div>
+      <div class="flex-container">
+        <div id="content" class="markdown-body">
+
+        </div>
+        <aside>
+          
+        </aside>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+      document.getElementById('content').innerHTML = marked.parse("<%- content %>");
+    </script>
+  </body>
 </html>

@@ -1,0 +1,23 @@
+body {
+  background-color: #FFFFFF;
+}
+main {
+  max-width: 1200px;
+  padding: 16px 32px;
+  margin: 0px auto;
+}
+img.main-image {
+  max-width: 680px;
+  margin: 20px 0;
+}
+.flex-container {
+  display: flex;
+}
+.flex-container #content {
+  flex: 1;
+  padding: 25px;
+}
+.flex-container aside {
+  min-width: 350px;
+  background-color: red;
+}

@@ -6,7 +6,8 @@
     gap: 80px;
     top: 0px;
     position: sticky;
-    background-color: #3c3c3e;
+    /* background-color: #3c3c3e; */
+    background-color: #1e1e20;
     width: 100%;
     padding: 8px 15px;
 }
