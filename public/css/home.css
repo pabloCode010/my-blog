@@ -17,6 +17,7 @@
     background-color: #1e1e20;
     color: #F9F8FC;
     line-height: 1.5;
+    padding: 20px 40px;
 }
 .about-section  .about-title {
     font-size: var(--font-size-extra-large);

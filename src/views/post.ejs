@@ -4,32 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
     <link rel="stylesheet" href="/css/layouts.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/post.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
     <title>Document</title>
 </head>
 <body>
     <%- include("layouts/navbar.ejs", { currentPage: "post" }); -%>
-    <main>
-      <h1><%= title %></h1>
+    <main class="markdown-body">
+      <h1 class="title"><%= title %></h1>
       <p class="summary"><%= summary %></p>
       <div style="text-align: center;">
-        <img src="<%= imageUrl %>" alt="" class="main-image">
+        <img src="<%= imageUrl %>" alt="" class="image">
       </div>
-      <div class="flex-container">
-        <div id="content" class="markdown-body">
-
+      <div class="content-post">
+        <div id="content">
+          <%- content %>
         </div>
-        <aside>
-          
-        </aside>
+        <aside></aside>
       </div>
     </main>
+    <%- include("layouts/footer.ejs", { currentPage: "home" }); -%>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script>
-      document.getElementById('content').innerHTML = marked.parse("<%- content %>");
-    </script>
+    <!-- <script>
+      document.getElementById('content').innerHTML = marked.parse("");
+    </script> -->
   </body>
 </html>

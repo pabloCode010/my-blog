@@ -6,9 +6,8 @@ const renderPostPage = async (req, res, next) => {
   try {
     const { title } = req.params;
     const { content, imageUrl, summary } = await PostService.findByTitle(title, { _id: 0, content: 1, imageUrl: 1, summary: 1 });
-    
     res.status(200).render("post", { 
-      content: JSON.stringify(content).substring(1, content.length - 1),
+      content: marked(content),
       title,
       summary,
       imageUrl

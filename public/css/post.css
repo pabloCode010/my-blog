@@ -1,23 +1,81 @@
 body {
   background-color: #FFFFFF;
 }
-main {
-  max-width: 1200px;
-  padding: 16px 32px;
-  margin: 0px auto;
+.markdown-body {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
 }
-img.main-image {
-  max-width: 680px;
-  margin: 20px 0;
+.markdown-body .title{
+  font-size: 40px;
+  font-weight: 700;
+  font-family: var(--font-family-title);
+  margin-bottom: 15px;
 }
-.flex-container {
+.markdown-body .summary {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: var(--font-family-body);
+}
+.markdown-body .image {
+  width: 100%;
+  max-width: 750px;
+  margin: 25px 0;
+}
+.markdown-body .content-post {
   display: flex;
+  gap: 10px;
 }
-.flex-container #content {
+.markdown-body .content-post #content {
   flex: 1;
-  padding: 25px;
 }
-.flex-container aside {
-  min-width: 350px;
+.markdown-body .content-post aside {
   background-color: red;
+  min-width: 250px;
+} 
+.markdown-body .content-post  h2 {
+  border-bottom: none;
+  font-size: 35px;
+  padding: 0;
+  margin-top: 60px;
+}
+.markdown-body .content-post  h2:first-child{
+  margin-top: 0px;
+}
+.markdown-body .content-post  h3 {
+  font-size: 25px;
+}
+.markdown-body .content-post  h4 {
+  font-size: 20px;
+}
+.markdown-body .content-post  p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+@media screen and (max-width: 850px) {
+  .markdown-body .content-post {
+    display: block;
+  }
+  .markdown-body .content-post aside{
+    display: none;
+    height: 80px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .markdown-body {
+    margin-top: 0px;
+  }
+  .markdown-body .title {
+    font-size: 28px;
+  }
+  .markdown-body .content-post  h2 {
+    font-size: 24px;
+    margin-top: 30px;
+  }
+  .markdown-body .content-post  h3 {
+    font-size: 20px;
+  }
+  .markdown-body .content-post  h4 {
+    font-size: 18px;
+  }
 }

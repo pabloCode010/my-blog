@@ -59,6 +59,17 @@
 .navbar .navbar-feature .navbar-search-bar .search-input::placeholder {
     font-size: var(--font-size-normal);
 }
+@media screen and (max-width: 630px){
+    .navbar .navbar-feature {
+        display: none;
+    }
+}
+@media screen and (max-width: 400px){
+    .navbar {
+        flex-direction: column-reverse;
+        gap: 5px;
+    }
+}
 /* ----------------------------------------------- */
 .subscription {
     padding: 5px;
@@ -97,7 +108,7 @@
 }
 /* ----------------------------------------------- */
 footer {
-    font-family: var(--font-family-title);
+    font-family: var(--font-family-body);
     background-image: url("/images/pexels-jakub-novacek-924824.jpg");
     background-size: cover;
     background-color: #1e1e20;
