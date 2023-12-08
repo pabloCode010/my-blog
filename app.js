@@ -6,8 +6,7 @@ const ip = require("ip");
 const morgan = require("morgan");
 
 const PORT = process.env.PORT || 3000;
-const indexRouter = require("./src/routes/index");
-const postRouter = require("./src/routes/post");
+const router = require("./src/routes");
 const connect = require("./src/db/connect");
 const api = require("./src/API/routes/router");
 
@@ -20,8 +19,7 @@ app.use(morgan("dev"));
 app.use(express.static("public"));
 
 // Routes Views
-app.use(indexRouter);
-app.use(postRouter);
+app.use(router);
 
 // Middlewares -> Api
 app.use(express.json());
