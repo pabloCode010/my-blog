@@ -8,7 +8,6 @@ const morgan = require("morgan");
 const PORT = process.env.PORT || 3000;
 const router = require("./src/routes");
 const connect = require("./src/db/connect");
-const api = require("./src/API/routes/router");
 
 // Views engine
 app.set("view engine", "ejs");
@@ -24,8 +23,6 @@ app.use(router);
 // Middlewares -> Api
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-app.use(api);
 
 const start = async () => {
   await connect(process.env.MONGO_URI);
