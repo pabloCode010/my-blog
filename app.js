@@ -20,10 +20,6 @@ app.use(express.static("public"));
 // Routes Views
 app.use(router);
 
-// Middlewares -> Api
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
 const start = async () => {
   await connect(process.env.MONGO_URI);
   app.listen(PORT, () => {
