@@ -16,7 +16,7 @@
         <p class="about-description">Estudiante de Informática apasionado por la tecnología. Comparto recursos en mi blog.</p>
         <p class="welcome-message">¡Bienvenido!</p>
         <div class="about-align-right">
-            <%- include("layouts/subscription.ejs"); -%>
+            <!-- <%- include("layouts/subscription.ejs"); -%> -->
         </div>
     </header>
     <section class="section latest-videos">
@@ -26,11 +26,14 @@
         </form>
         <h2 class="section-title">últimos videos</h2>
         <div class="videos-scroll">
-            <article class="video"></article>
-            <article class="video"></article>
-            <article class="video"></article>
-            <article class="video"></article>
-            <article class="video"></article>
+            <% for (let i = 0; i < videoLinks.length; i++) { %>
+                <article class="video">
+                    <img src="<%= videoLinks[i].imageUrls[0] %>" alt="<%= videoLinks[i].imageUrls[1] %>">
+                    <a class="video-link" href="<%= videoLinks[i].videoUrl %>" target="_blank">
+                        <h3 class="title limit-text"><%= videoLinks[i].title %></h3>
+                    </a>
+                </article>
+            <% } %> 
         </div>
         <div class="links">
             <a href="#" class="link">youtube</a>
@@ -43,10 +46,10 @@
             <% for (let i = 0; i < latestPosts.length; i++) { %>
             <article class="post">
                 <div class="post-summary">
-                    <img src="<%= latestPosts[i].imageUrl %>" alt="">
+                    <img src="<%= latestPosts[i].imageUrls[0] %>" alt="<%= latestPosts[i].imageUrls[1] %>">
                     <div class="post-text-container">
                         <h3 class="post-title"><%= latestPosts[i].title %></h3>
-                        <p class="sypnosis limit-text"><%= latestPosts[i].summary %></p>
+                        <p class="sypnosis limit-text"><%= latestPosts[i].description %></p>
                     </div>
                 </div>
                 <a class="post-link" href="/post/<%= latestPosts[i].title %>">Leer más</a>
@@ -60,10 +63,10 @@
             <% for (let i = 0; i < recommendedPosts.length; i++) { %>
             <article class="post">
                 <div class="post-summary">
-                    <img src="<%= recommendedPosts[i].imageUrl %>" alt="">
+                    <img src="<%= recommendedPosts[i].imageUrls[0] %>" alt="<%= recommendedPosts[i].imageUrls[1] %>">
                     <div class="post-text-container">
                         <h3 class="post-title"><%= recommendedPosts[i].title %></h3>
-                        <p class="sypnosis limit-text"><%= recommendedPosts[i].summary %></p>
+                        <p class="sypnosis limit-text"><%= recommendedPosts[i].description %></p>
                     </div>
                 </div>
                 <a class="post-link" href="/post/<%= recommendedPosts[i].title %>">Leer más</a>

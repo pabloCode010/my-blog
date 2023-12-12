@@ -64,12 +64,6 @@
         display: none;
     }
 }
-@media screen and (max-width: 400px){
-    .navbar {
-        flex-direction: column-reverse;
-        gap: 5px;
-    }
-}
 /* ----------------------------------------------- */
 .subscription {
     padding: 5px;

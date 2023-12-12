@@ -1,29 +1,8 @@
-const Post = require("../models/post");
-const RecommendedPost = require("../models/recommendedPost");
+const Post = require("../db/models/post");
+const RecommendedPost = require("../db/models/recommendedPost");
 const boom = require("@hapi/boom");
 
 class PostService {
-  async create(data){
-    try {
-      const newPost = new Post(data);
-      await newPost.save();
-      return newPost;
-    } catch ({ message }) {
-      throw new boom.internal(message);
-    }
-  }
-
-  async createRecommendedPost(postId) {
-    try {
-      console.log("id", postId);
-      const newRecommendation = new RecommendedPost({ post: postId });
-      await newRecommendation.save();
-      return newRecommendation;
-    } catch ({ message }) {
-      throw new boom.internal(message);
-    }
-  }
-
   async getLatest(limit, select={}) {
     try {
       const latsPosts = await Post.find({}, select)
@@ -76,4 +55,4 @@ class PostService {
   }
 }
 
-module.exports = PostService;
+module.exports = new PostService();

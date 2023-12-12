@@ -1,19 +1,19 @@
 const marked = require("marked").marked;
-const Service = require("../../services/postService");
-const PostService = new Service();
+const VideoService = require("../../services/videoService");
+const PostService = require("../../services/postService");
 
 const renderPostPage = async (req, res, next) => {
   try {
     const { title } = req.params;
-    const { content, imageUrl, summary } = await PostService.findByTitle(
+    const { content, imageUrls, description } = await PostService.findByTitle(
       title,
-      { _id: 0, content: 1, imageUrl: 1, summary: 1 }
+      { _id: 0, content: 1, imageUrls: 1, description: 1 }
     );
     res.status(200).render("post", {
       content: marked(content),
       title,
-      summary,
-      imageUrl,
+      description,
+      imageUrls,
     });
   } catch (error) {
     next(error);
@@ -25,17 +25,19 @@ const renderHomePage = async (req, res, next) => {
     const latestPosts = await PostService.getLatest(3, {
       _id: 0,
       title: 1,
-      summary: 1,
-      imageUrl: 1,
+      description: 1,
+      imageUrls: 1,
     });
     const recommendedPosts = await PostService.getRecommended(6, {
       _id: 0,
       title: 1,
-      summary: 1,
-      imageUrl: 1,
+      description: 1,
+      imageUrls: 1,
     });
 
-    res.status(200).render("home", { latestPosts, recommendedPosts });
+    const videoLinks = await VideoService.getLatest(5);
+
+    res.status(200).render("home", { videoLinks, latestPosts, recommendedPosts });
   } catch (error) {
     next(error);
   }

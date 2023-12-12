@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const recommendedPostSchema = new mongoose.Schema({
   post: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Post",
+    ref: "post",
   }
 });
 
-const RecommendedPost = mongoose.model("RecommendedPost", recommendedPostSchema );
+const RecommendedPost = mongoose.model("recommended-post", recommendedPostSchema );
 
 module.exports = RecommendedPost;

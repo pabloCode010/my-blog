@@ -14,9 +14,9 @@
     <%- include("layouts/navbar.ejs", { currentPage: "post" }); -%>
     <main class="markdown-body">
       <h1 class="title"><%= title %></h1>
-      <p class="summary"><%= summary %></p>
+      <p class="summary"><%= description %></p>
       <div style="text-align: center;">
-        <img src="<%= imageUrl %>" alt="" class="image">
+        <img src="<%= imageUrls[0] %>" alt="<%= imageUrls[1] %>" class="image">
       </div>
       <div class="content-post">
         <div id="content">
