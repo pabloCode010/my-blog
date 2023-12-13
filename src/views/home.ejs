@@ -15,13 +15,10 @@
         <h1 class="about-title">My-Blog</h1>
         <p class="about-description">Estudiante de Informática apasionado por la tecnología. Comparto recursos en mi blog.</p>
         <p class="welcome-message">¡Bienvenido!</p>
-        <div class="about-align-right">
-            <!-- <%- include("layouts/subscription.ejs"); -%> -->
-        </div>
     </header>
     <section class="section latest-videos">
-        <form class="search-bar-mobile" action="">
-            <input class="search-input" type="search" placeholder="Buscar Posts">
+        <form class="search-bar-mobile" action="/search" method="GET">
+            <input class="search-input" type="search" name="q" placeholder="Buscar Posts">
             <button class="search-submit" type="submit"><span class="material-symbols-outlined">search</span></button>
         </form>
         <h2 class="section-title">últimos videos</h2>

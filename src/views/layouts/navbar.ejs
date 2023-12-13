@@ -10,10 +10,12 @@
         </div>
     <% }%>
 
-    <div class="navbar-feature">
-        <form class="navbar-search-bar" action="">
-            <input class="search-input" type="search" placeholder="Buscar">
-            <button class="search-submit" type="submit"><span class="material-symbols-outlined">search</span></button>
-        </form>
-    </div>
+    <% if (currentPage !== 'search') { %>
+        <div class="navbar-feature">
+            <form class="navbar-search-bar" action="/search" method="GET">
+                <input class="search-input" type="search" name="q" placeholder="Buscar Posts">
+                <button class="search-submit" type="submit"><span class="material-symbols-outlined">search</span></button>
+            </form>
+        </div>
+    <% }%>
 </nav>

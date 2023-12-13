@@ -1,0 +1,67 @@
+main {
+	padding: 40px;
+	margin: 0 auto;
+	max-width: 1020px;
+}
+h1 {
+	font-size: var(--font-size-extra-large);
+	text-transform: capitalize;
+	text-align: center;
+}
+.posts {
+	margin: 20px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+.posts .post{
+	background-color: #fff;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.123);
+	padding: 15px;
+}
+.posts .post h3 {
+	font-size: var(--font-size-large);
+}
+.posts .post p {
+	margin: 15px 0;
+	font-size: var(--font-size-normal);
+}
+.posts .post a {
+	color: #b13539;
+	font-size: var(--font-size-normal);
+}
+@media screen and (max-width: 500px) {
+	main {
+		padding: 30px 10px;
+	}
+}
+
+.search-bar{
+    display: flex;
+    max-width: 1070px;
+    margin: 0 auto 20px auto;
+}
+.search-bar .search-input {
+	font-size: var(--font-size-normal);
+}
+.search-bar .search-input,
+.search-bar .search-submit {
+    font-family: var(--font-family-body);
+    text-transform: capitalize;
+    height: 40px;
+    border: none;
+    outline: none;
+}
+.search-bar .search-input {
+    flex: 1;
+    background-color: #FFFFFF;
+    min-width: 100px;
+    padding: 0 15px;
+}
+.search-bar .search-submit {
+    cursor: pointer;
+    background-color: #E7E7E7;
+}
+.search-bar .search-input::placeholder {
+    font-size: var(--font-size-normal);
+}

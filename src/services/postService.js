@@ -3,7 +3,7 @@ const RecommendedPost = require("../db/models/recommendedPost");
 const boom = require("@hapi/boom");
 
 class PostService {
-  async getLatest(limit, select={}) {
+  async getLatest(limit, select = {}) {
     try {
       const latsPosts = await Post.find({}, select)
         .sort({ date: -1 })
@@ -14,29 +14,29 @@ class PostService {
       throw new boom.internal(message);
     }
   }
-  
-  async getRecommended(limit, select={}) {
+
+  async getRecommended(limit, select = {}) {
     try {
       const recommendedPosts = await RecommendedPost.find({})
         .populate("post", select)
         .limit(limit);
 
-      return recommendedPosts.map(recommend => recommend.post);
+      return recommendedPosts.map((recommend) => recommend.post);
     } catch ({ message }) {
       throw new boom.internal(message);
     }
   }
 
-  async getAll(limit=15){
+  async getAll(limit = 15) {
     try {
       const posts = await Post.find({}).limit(limit);
-      return posts
+      return posts;
     } catch ({ message }) {
       throw new boom.internal(message);
     }
   }
 
-  async findByTitle(title, select={}){
+  async findByTitle(title, select = {}) {
     try {
       const findPost = await Post.findOne({ title }, select);
       return findPost;
@@ -45,10 +45,27 @@ class PostService {
     }
   }
 
-  async findById(postId, select={}){
+  async findById(postId, select = {}) {
     try {
-      const findPost = await Post.findById(postId,select);
+      const findPost = await Post.findById(postId, select);
       return findPost;
+    } catch ({ message }) {
+      throw new boom.internal(message);
+    }
+  }
+
+  async search(query, select = {}) {
+    try {
+      const regex = new RegExp(query, "i");
+
+      const result = await Post.find(
+        {
+          $or: [{ title: regex }, { categories: { $in: [regex] } }],
+        },
+        select
+      );
+
+      return result;
     } catch ({ message }) {
       throw new boom.internal(message);
     }

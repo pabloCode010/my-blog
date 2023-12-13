@@ -14,7 +14,7 @@ app.set("view engine", "ejs");
 app.set("views", `${__dirname}/src/views`);
 
 // Middlewares
-app.use(morgan("dev"));
+app.use(morgan("common"));
 app.use(express.static("public"));
 
 // Routes Views
