@@ -21,17 +21,19 @@
             <input class="search-input" type="search" name="q" placeholder="Buscar Posts">
             <button class="search-submit" type="submit"><span class="material-symbols-outlined">search</span></button>
         </form>
-        <h2 class="section-title">últimos videos</h2>
-        <div class="videos-scroll">
-            <% for (let i = 0; i < videoLinks.length; i++) { %>
-                <article class="video">
-                    <img src="<%= videoLinks[i].imageUrls[0] %>" alt="<%= videoLinks[i].imageUrls[1] %>">
-                    <a class="video-link" href="<%= videoLinks[i].videoUrl %>" target="_blank">
-                        <h3 class="title limit-text"><%= videoLinks[i].title %></h3>
-                    </a>
-                </article>
-            <% } %> 
-        </div>
+        <% if (videoLinks.length > 0) { %>
+            <h2 class="section-title">últimos videos</h2>
+            <div class="videos-scroll">
+                <% for (let i = 0; i < videoLinks.length; i++) { %>
+                    <article class="video">
+                        <img src="<%= videoLinks[i].imageUrls[0] %>" alt="<%= videoLinks[i].imageUrls[1] %>">
+                        <a class="video-link" href="<%= videoLinks[i].videoUrl %>" target="_blank">
+                            <h3 class="title limit-text"><%= videoLinks[i].title %></h3>
+                        </a>
+                    </article>
+                <% } %> 
+            </div>
+        <% }%>
         <div class="links">
             <a href="#" class="link">youtube</a>
             <a href="#" class="link">tiktok</a>
@@ -54,23 +56,25 @@
             <% } %>            
         </div>
     </section>
-    <section class="recommended-posts section">
-        <h2 class="section-title">recomendaciones</h2>
-        <div class="posts-container">
-            <% for (let i = 0; i < recommendedPosts.length; i++) { %>
-            <article class="post">
-                <div class="post-summary">
-                    <img src="<%= recommendedPosts[i].imageUrls[0] %>" alt="<%= recommendedPosts[i].imageUrls[1] %>">
-                    <div class="post-text-container">
-                        <h3 class="post-title"><%= recommendedPosts[i].title %></h3>
-                        <p class="sypnosis limit-text"><%= recommendedPosts[i].description %></p>
+    <% if (recommendedPosts.length > 0) { %>
+        <section class="recommended-posts section">
+            <h2 class="section-title">recomendaciones</h2>
+            <div class="posts-container">
+                <% for (let i = 0; i < recommendedPosts.length; i++) { %>
+                <article class="post">
+                    <div class="post-summary">
+                        <img src="<%= recommendedPosts[i].imageUrls[0] %>" alt="<%= recommendedPosts[i].imageUrls[1] %>">
+                        <div class="post-text-container">
+                            <h3 class="post-title"><%= recommendedPosts[i].title %></h3>
+                            <p class="sypnosis limit-text"><%= recommendedPosts[i].description %></p>
+                        </div>
                     </div>
-                </div>
-                <a class="post-link" href="/post/<%= recommendedPosts[i].title %>">Leer más</a>
-            </article>
-            <% } %>       
-        </div>
-    </section>
+                    <a class="post-link" href="/post/<%= recommendedPosts[i].title %>">Leer más</a>
+                </article>
+                <% } %>       
+            </div>
+        </section>  
+    <% }%>
     <%- include("layouts/footer.ejs", { currentPage: "home" }); -%>
 </body>
 </html>
